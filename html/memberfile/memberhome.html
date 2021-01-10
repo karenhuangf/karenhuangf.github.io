@@ -90,6 +90,27 @@ $(function () {
     obj.click();
     }
     </script>
+<body id="body">
+
+  <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title text-white" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-outline-danger">確定</button>
+            </div>
+        </div>
+    </div>
+  </div>
   <!-- navbar -->
   <div id="header">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -102,7 +123,7 @@ $(function () {
           <li class="nav-item">
             <a class="nav-link" href="/html/drom/drom.html">打擊樂器</a>
           </li>
-
+          <li class="nav-item">
             <a class="nav-link" href="/html/keybord/keyboard.html">鍵盤</a>
           </li>
           <li class="nav-item">
@@ -111,28 +132,27 @@ $(function () {
           <li class="nav-item">
             <a class="nav-link" href="/html/record/record.html">錄音設備</a>
           </li>
-          <
         </ul>
 
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            會員
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item item1" href="">會員登出</a>
-            <a class="dropdown-item" href="/html/memberfile/memberfile.html">會員資料</a>
-            <a class="dropdown-item" href="/html/memberfile/memberhome.html">購物車</a>
-            <a class="dropdown-item" href="/html/memberfile/password.html">修改密碼</a>
-          </div>
-        </div>
+        
         
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
         </form>
+
+        <div class="dropdown memberbutton">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            會員
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item item1" href="/html/member/login.html">會員登入</a>
+            <a class="dropdown-item" href="/html/member/sign.html">會員註冊</a>
+          </div>
+        </div>
       </div>
-      <div class="dropdown ml-auto">
-        <button class="btn btn-cart btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      <div class="dropdown ml-auto car">
+        <button class="btn btn-cart btn-sm btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-shopping-cart text-dark fa-2x"></i>
             <span class="badge badge-pill badge-danger">9</span>
@@ -144,29 +164,84 @@ $(function () {
                     <tbody>
                         <tr>
                             <td class="align-middle text-center">
-                                <a href="#removeModal" data-price="1999" data-title="不求人" data-toggle="modal"
+                                <a href="#removeModal" data-price="$438000" data-title="Martin D-14F" data-toggle="modal"
                                     data-target="#removeModal"><i class="far fa-trash-alt "></i></a>
                             </td>
-                            <td class="align-middle">不求人</td>
-                            <td class="align-middle">1件</td>
-                            <td class="align-middle text-right">$1999</td>
+                            <td class="align-middle">Martin D-14F</td>
+                            <td class="align-middle">1</td>
+                            <td class="align-middle text-right">$438000</td>
                         </tr>
                         <tr>
                             <td class="align-middle text-center">
-                                <a href="#removeModal" data-price="999" data-title="一級偽裝帽" data-toggle="modal"
+                                <a href="#removeModal" data-price="$5480" data-title="L.R. Baggs Align Reverb 木吉他殘響效果器" data-toggle="modal"
                                     data-target="#removeModal"><i class="far fa-trash-alt "></i></a>
                             </td>
-                            <td class="align-middle">一級偽裝帽</td>
+                            <td class="align-middle">L.R. Baggs Align Reverb 木吉他殘響效果器</td>
                             <td class="align-middle">1件</td>
-                            <td class="align-middle text-right">$999</td>
+                            <td class="align-middle text-right">$5480</td>
                         </tr>
                     </tbody>
                 </table>
-                <a href="#" class="btn btn-block btn-primary btn-sm text-white">確認結帳</a>
+                <a href="#" class="btn btn-block btn-danger btn-sm text-white">確認結帳</a>
             </div>
         </div>
     </div>
+     
     </nav>
+  </div>
+
+  <div id="file">
+    <span>更新個人資料</span>
+    <form>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">姓名</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="請輸入您的姓名">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">手機</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="請輸入您的電話號碼">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">電子郵件</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="請輸入您的電子郵件">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">出生日期</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="請輸入您的生日">
+          </div>
+        </div>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">性別</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <label class="form-check-label" for="gridRadios1">
+                  男
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  女
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-outline-secondary fuck">確定修改</button>
+          </div>
+        </div>
+      </form>
   </div>
 
     <div id="mainbar">
