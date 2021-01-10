@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>期末專案</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/program.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/js/memberfile.js">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <div id="fb-root"></div>
+    
+  </head>
+  
+  <script>
+    
+   $('.carousel').carousel({
+    interval: 2000
+  })
+  $(document).ready(function () {
+              $('#removeModal').on('show.bs.modal', function (event) {
+                  var btn = $(event.relatedTarget);
+                  var title = btn.data('title');
+                  var price = btn.data('price');
+                  var modal = $(this);
+                  modal.find('.modal-title').text('確認刪除 ' + title);
+                  modal.find('.modal-body').text('您要刪除 ' + title + ' $ ' + price + '元 嗎?');
+              });
+  
+          });
+          $(function(){
+      var t = $("#quantity");
+      $("#add").click(function(){
+          t.val(parseInt(t.val())+1);
+          $("#min").removeAttr("disabled");                 //當按加1時，解除$("#min")不可讀狀態
+          setTotal();
+      })
+      $("#min").click(function(){
+                 if (parseInt(t.val())>1) {                     //判斷數量值大於1時才可以減少
+                  t.val(parseInt(t.val())-1)
+                  }else{
+                  $("#min").attr("disabled","disabled")        //當$("#min")為1時，$("#min")不可讀狀態
+                 }
+          setTotal();
+      })
+      function setTotal(){
+          $("#total").html((parseInt(t.val())*3.95).toFixed(2));
+      }
+      setTotal();
+  })
+  
+      </script>
+  <body id="body">
+  
+    <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header bg-danger">
+                  <h5 class="modal-title text-white" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ...
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-outline-danger">確定</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- navbar -->
+    <div id="header">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/html/index.html">鐵鏽味</a>
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/html/guitar/guitar.html">吉他<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/drom/drom.html">打擊樂器</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/keybord/keyboard.html">鍵盤</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/effector/effector.html">效果器</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/record/record.html">錄音設備</a>
+            </li>
+          </ul>
+  
+          
+          
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
+          </form>
+  
+          <div class="dropdown memberbutton">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              會員
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item item1" href="/html/member/login.html">會員登入</a>
+              <a class="dropdown-item" href="/html/member/sign.html">會員註冊</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown ml-auto car">
+          <button class="btn btn-cart btn-sm btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-shopping-cart text-dark fa-2x"></i>
+              <span class="badge badge-pill badge-danger">9</span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" style="min-width: 300px" aria-labelledby="dropdownMenuButton">
+              <div class="p-3">
+                  <table class="table table-sm ">
+                      <h6>已選擇商品</h6>
+                      <tbody>
+                          <tr>
+                              <td class="align-middle text-center">
+                                  <a href="#removeModal" data-price="$438000" data-title="Martin D-14F" data-toggle="modal"
+                                      data-target="#removeModal"><i class="far fa-trash-alt "></i></a>
+                              </td>
+                              <td class="align-middle">Martin D-14F</td>
+                              <td class="align-middle">1</td>
+                              <td class="align-middle text-right">$438000</td>
+                          </tr>
+                          <tr>
+                              <td class="align-middle text-center">
+                                  <a href="#removeModal" data-price="$5480" data-title="L.R. Baggs Align Reverb 木吉他殘響效果器" data-toggle="modal"
+                                      data-target="#removeModal"><i class="far fa-trash-alt "></i></a>
+                              </td>
+                              <td class="align-middle">L.R. Baggs Align Reverb 木吉他殘響效果器</td>
+                              <td class="align-middle">1件</td>
+                              <td class="align-middle text-right">$5480</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  <a href="#" class="btn btn-block btn-danger btn-sm text-white">確認結帳</a>
+              </div>
+          </div>
+      </div>
+       
+      </nav>
+    </div>
+    
+    <div id="productup">
+        <div id="sidepicture">
+            <img src="/images/kb/Roland KF-10 Kiyola 15.jpeg">
+        </div>
+
+        <div id="product">
+            <span class="producttitle">Roland KF-10 "Kiyola" 頂級日本製電鋼琴 - 原木色</span><br>
+            <ul>
+                <li>
+                    ●Roland KF-10 Kiyola 原木色
+                <li>
+                    ●Roland聯名日本最大木製傢俱公司 Karimoku
+                </li>
+                <li>
+                    ●頂級日本製數位鋼琴
+                </li>
+                <li>
+                    ●工藝精品的完美詮釋
+                </li>
+                <li>
+                    ●原木手工製作
+                </li>
+                <li>
+                    ●全新品公司貨 保固一年
+                </li>
+                
+            </ul>
+            <span class="price">$145000</span><br><br>
+            <span>供貨狀況：尚有庫存</span><br><br>
+            <input id="min" name="" type="button" value="-" />
+            <input id="quantity" name="" type="text" value="1" />
+            <input id="add" name="" type="button" value="+" ><br><br>
+            <button type="button" class="btn  btn-outline-danger">加入購物車</button>
+            <button type="button" class="btn btn-danger">立即購買</button>
+
+
+        </div>
+    </div>
+
+    <div id="productintro">
+        <span class="titleintro">商品介紹</span><br><br>
+        <span>
+            <h3>工藝精品數位鋼琴 :</h3>
+
+            <p>新的KIYOLA KF-10是數位技術與傳統工藝精品的完美詮釋。由Roland與日本老字號家具設計公司Karimoku共同打造，這款精緻的數位鋼琴展現了完美的意象與功能：它是一款強大的樂器，讓您的居家表現自我風格。她的名字的寓意即為”優雅與美麗”，KIYOLA KF-10在現代鋼琴市場當中獨樹一幟，擁有全天然、手工製作的木材琴體，襯托您的居家生活品味。同時，Roland的創新數位鋼琴技術，滿足了最嚴苛演奏家的需求，配備旗艦級的功能特色包括SuperNATURAL Piano音源、新的PHA-50鍵盤的動態感應技術，無線Bluetooth®連線性能，可連線使用您喜愛的音樂製作app，動態陣列喇叭讓您的家中餘音繞樑。
+            
+            由日本Karimoku家具手工製作的實木琴體 :
+            
+            KIYOLA KF-10是由Karimoku潛心設計 – Karimoku誕生於1940年，日本最大的木製家具品牌，以提倡環保訴求、低甲醛木材為宗旨–使得它相較於與市面上任何其他鋼琴更顯其卓然不凡的氣 質。採用全天然木料在日本手工製作，打造出纖細、時尚、符合人體工學的琴身，如精緻家具般的精品，使您的居家更顯氣質脫俗。完美彰顯演奏者的風格，每一部 鋼琴天然的木紋都是獨一無二的
+            僅得到視覺上的讚賞是不夠的：您會想要觸摸KIYOLA KF-10。琴體圓滑、曲線設計的面板來自Karimoku高級沙發的靈感，苗條的琴腳讓它更能完美無縫地融合於您的居家空間。面板採用最簡約的控制裝置，KIYOLA KF-10保留了更自然的風格，音量旋鈕與按鍵都配置於側邊，避免使人在演奏時分神。琴蓋兼具譜架的功能，呈現簡單而精緻的美學。天然木料歷久彌新之美，使它將受到您多年的鍾愛，滿足您對高級樂器與家具的期待。
+        </p>
+            
+            <h3>由傳統日本木工大師們手工打造 :</h3>
+            
+            <p> 以富有永不妥協精神的超完美主義者而著名的Karimoku老工匠們，在他們與Roland總公司與生產工廠位居日本同一縣的工廠裡，打造出每一部KIYOLA KF-10的琴體。完成的琴體隨後運送至Roland公司，繼續完成內部電子零件、喇叭以及鍵盤的組裝。在材質與所有製作環節全面注重環保，合力完成的製作流程中確保KIYOLA系列符合高品質的一貫要求。
+            
+            Roland SuperNATURAL Piano鋼琴音源與PHA-50鍵盤 :
+            
+            KIYOLA KF-10的美麗外觀下，擁有一樣頂尖的演奏表現力。打開Karimoku的琴蓋，您將感受到Roland旗艦級LX/HP數位鋼琴同樣等級的SuperNATURAL鋼琴音源。它與大多數的數位鋼琴並不一樣 - 大多數的數位鋼琴在您彈奏一個琴鍵時觸發的是一段取樣聲音-然而SuperNATURAL 卻是重製傳統鋼琴上的聲音以及反應，它重現了在鋼琴發聲的過程中，所有發生的各種複雜交互影響。造就出具有豐富、栩栩如生、具有特色的聲音，能夠在聲音上反應您的演奏風格與觸鍵，透過四個喇叭傳達具臨場感環繞的聲音。 KIYOLA KF-10也配備了Roland最新的PHA-50鍵盤，每個琴鍵混合了木料與而耐用度高的內層模塑材質，帶來傳統而熟悉感的外觀而且堅固耐用。為了讓演奏者盡情展現表現力，KIYOLA KF-10的踏板也支援使用半踩踏板演奏技巧。
+            
+            人體工學琴椅讓您的姿勢得到支撐，保護脊椎 :
+            
+            在設計不良的琴椅上長時間坐姿不正確，不但相當不舒服，甚至可能導致骨頭與關節的緊繃、下背部疼痛以及對您的脊椎的長期傷害。為了要設法解決這個問題，KIYOLA KF-10結合Karimoku在家具設計上的大量經驗優勢 – 加上科學的研究 – 為您獻上一張符合人體工學設計的鋼琴琴椅。在日本工匠們精心研究及測試之下，它具有特殊的拱形能夠讓您保持良好姿勢，加寬的座椅面積能夠更平均地分散您的重量，椅墊採用柔軟、高密度海綿來製作。因此，當您長時間彈奏鋼琴時不再感覺不舒服或是擔心對您的健康造成影響。
+        </p>
+            
+           <h3> 無線Bluetooth連線實用的app :</h3>
+            
+            <p>  如果您曾經在彈奏鋼琴時感到平淡失去靈感，您將會非常適合KIYOLA KF-10，儘管它有著簡約的設計，但它可以無線連接到您的智慧型手機或是平板，搭配使用一些優異的音樂程式app。例如透過您的Android或iOS裝置操控專屬的app，您將可以選擇內建音色、播放內建歌曲或是設定內建節拍器，讓您設置您想要的功能。當您想要更深入的應用，Roland的Piano Designer app可以讓您微調編輯您的音色，您可以在練習時使用例如PiaScore與Sheet Music Direct(可以讓您用腳踏板控制樂譜翻頁)等app。即使在您未做演奏時，KIYOLA KF-10的無線喇叭也能夠播出您iOS或Android裝置中的高品質音樂：這又是另一個讓這部優質鋼琴能融入現代居家風格的原因。
+            
+            榮獲2015 Good Design Award優良設計獎 :
+            
+            由日本設計振興會(Japan Institute of Design Promotion)主辦，超過半世紀以來，評選出能夠豐富人們生活的許多創新的設計，優良設計獎以及它有名望的G Mark僅授與兼具美學與功能性的勝出產品。 在Roland最新技術與Karimoku的全天然木工製作技術的優美結合亞，KIYOLA KF-10在兩項評審標準皆通過，在2015年九月 – 在日本正式推出之前 – 它很榮耀地受領這項具聲望的獎項。 </p>
+<br>
+
+        </span><br><br>
+        <span class="titleintro">運送方式</span><br><br>
+        <ol>
+            <li>
+                宅配／快遞
+            </li>
+            <li>
+                貨到付款
+            </li>
+            <li>
+               超商付款取貨 
+            </li>
+            <li>
+                來店取貨
+            </li>
+        </ol>
+        宅配貨到付款、超商取貨付款、宅配到府<br>
+        目前無法提供刷卡服務。<br><br>
+
+        本商店出貨讓您購物安心，享有售後保障。<br>
+        本商店使用宅配物流以及超商物流，如果急件可使用超商以外的物流處裡喔！
+    </div>
+  <div id="footer">
+    <div class="footer">
+      <ul>
+        <li  class="logo">
+          <a href="/html/index.html" id="foot" ><b>鐵鏽味</b></a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <b>聯絡我們</b>
+        </li>
+        <li>
+          <hr color="#ADADAD">
+        </li>
+        <li>
+          <b>Tele:</b>0978547003
+        </li>
+        <li>
+          <b>Email:</b>
+        </li>
+        <li>
+          ttpss96174@gmail.com
+        </li>
+        <li>
+          <b>Locate:</b>
+        </li>
+        <li>
+          桃園市中壢區大仁五街10號
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <b>會員專區</b>
+        </li>
+        <li>
+          <hr color="#ADADAD">
+        </li>
+        <li>
+          <a href="/html/member/sign.html" id="foot">加入會員</a>
+        </li>
+        <li>
+          <a href="/html/member/member.html" id="foot">會員權益</a>
+        </li>
+        <li>
+          <a href="/html/member/shop.html" id="foot">購物說明</a> 
+        </li>
+        <li>
+          <a href="/html/member/private.html" id="foot">隱私政策</a> 
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

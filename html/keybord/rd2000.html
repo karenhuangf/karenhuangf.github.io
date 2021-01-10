@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>期末專案</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/program.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/js/memberfile.js">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <div id="fb-root"></div>
+    
+  </head>
+  
+  <script>
+    
+   $('.carousel').carousel({
+    interval: 2000
+  })
+  $(document).ready(function () {
+              $('#removeModal').on('show.bs.modal', function (event) {
+                  var btn = $(event.relatedTarget);
+                  var title = btn.data('title');
+                  var price = btn.data('price');
+                  var modal = $(this);
+                  modal.find('.modal-title').text('確認刪除 ' + title);
+                  modal.find('.modal-body').text('您要刪除 ' + title + ' $ ' + price + '元 嗎?');
+              });
+  
+          });
+          $(function(){
+      var t = $("#quantity");
+      $("#add").click(function(){
+          t.val(parseInt(t.val())+1);
+          $("#min").removeAttr("disabled");                 //當按加1時，解除$("#min")不可讀狀態
+          setTotal();
+      })
+      $("#min").click(function(){
+                 if (parseInt(t.val())>1) {                     //判斷數量值大於1時才可以減少
+                  t.val(parseInt(t.val())-1)
+                  }else{
+                  $("#min").attr("disabled","disabled")        //當$("#min")為1時，$("#min")不可讀狀態
+                 }
+          setTotal();
+      })
+      function setTotal(){
+          $("#total").html((parseInt(t.val())*3.95).toFixed(2));
+      }
+      setTotal();
+  })
+  
+      </script>
+  <body id="body">
+  
+    <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header bg-danger">
+                  <h5 class="modal-title text-white" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  ...
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-outline-danger">確定</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    <!-- navbar -->
+    <div id="header">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/html/index.html">鐵鏽味</a>
+        <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/html/guitar/guitar.html">吉他<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/drom/drom.html">打擊樂器</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/keybord/keyboard.html">鍵盤</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/effector/effector.html">效果器</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/html/record/record.html">錄音設備</a>
+            </li>
+          </ul>
+  
+          
+          
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜尋</button>
+          </form>
+  
+          <div class="dropdown memberbutton">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              會員
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item item1" href="/html/member/login.html">會員登入</a>
+              <a class="dropdown-item" href="/html/member/sign.html">會員註冊</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown ml-auto car">
+          <button class="btn btn-cart btn-sm btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-shopping-cart text-dark fa-2x"></i>
+              <span class="badge badge-pill badge-danger">9</span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" style="min-width: 300px" aria-labelledby="dropdownMenuButton">
+              <div class="p-3">
+                  <table class="table table-sm ">
+                      <h6>已選擇商品</h6>
+                      <tbody>
+                          <tr>
+                              <td class="align-middle text-center">
+                                  <a href="#removeModal" data-price="$438000" data-title="Martin D-14F" data-toggle="modal"
+                                      data-target="#removeModal"><i class="far fa-trash-alt "></i></a>
+                              </td>
+                              <td class="align-middle">Martin D-14F</td>
+                              <td class="align-middle">1</td>
+                              <td class="align-middle text-right">$438000</td>
+                          </tr>
+                          <tr>
+                              <td class="align-middle text-center">
+                                  <a href="#removeModal" data-price="$5480" data-title="L.R. Baggs Align Reverb 木吉他殘響效果器" data-toggle="modal"
+                                      data-target="#removeModal"><i class="far fa-trash-alt "></i></a>
+                              </td>
+                              <td class="align-middle">L.R. Baggs Align Reverb 木吉他殘響效果器</td>
+                              <td class="align-middle">1件</td>
+                              <td class="align-middle text-right">$5480</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  <a href="#" class="btn btn-block btn-danger btn-sm text-white">確認結帳</a>
+              </div>
+          </div>
+      </div>
+       
+      </nav>
+    </div>
+    
+    <div id="productup">
+        <div id="sidepicture">
+            <img src="/images/kb/Roland RD-2000 8.9w.jpeg">
+        </div>
+
+        <div id="product">
+            <span class="producttitle">Roland RD-2000 最新頂級舞台表演鋼琴</span><br>
+            <ul>
+                <li>
+                    ●2個獨立音源引擎 音色包羅萬象 進化新層次
+                <li>
+                    ●優異的鍵盤機制 先進的控制功能
+                </li>
+                <li>
+                    ●錄音/編曲/虛擬樂器軟體連結 完美的主控鍵盤
+                </li>
+                <li>
+                    ●原廠公司貨保固一年 專業型數位舞台鋼琴
+                              
+            </ul>
+            <span class="price">$89000</span><br><br>
+            <span>供貨狀況：尚有庫存</span><br><br>
+            <input id="min" name="" type="button" value="-" />
+            <input id="quantity" name="" type="text" value="1" />
+            <input id="add" name="" type="button" value="+" ><br><br>
+            <button type="button" class="btn  btn-outline-danger">加入購物車</button>
+            <button type="button" class="btn btn-danger">立即購買</button>
+
+
+        </div>
+    </div>
+
+    <div id="productintro">
+        <span class="titleintro">商品介紹</span><br><br>
+        <span>
+            鍵盤<br>
+PHA-50 鍵盤: 木料與塑料混合結構, 具有擒縱機制(Escapement)以及黑檀木/象牙質感 (88鍵)<br>
+音源區<br>
+音源<br>
+2x 獨立音源引擎<br>
+音源引擎1: V-Piano技術<br>
+音源引擎2: SuperNATURAL<br>
+SuperNATURAL 鋼琴<br>
+SuperNATURAL (E.Piano, Clav)<br>
+虛擬音輪風琴(Virtual Tone Wheel Organ)<br>
+PCM 音源<br>
+最大同時發聲數<br>
+V-Piano 技術音源引擎: Full Polyphony(完全發音數)<br>
+SuperNATURAL 音源引擎: 128 voices<br>
+聲部數<br>
+16 聲部(PROGRAM使用最大8聲部)<br>
+音色數<br>
+1,100 音色以上<br>
+演奏設定(Program)<br>
+300<br>
+場景記憶(Scene)<br>
+100<br>
+效果器<br>
+Modulation FX: 4個系統, 62種<br>
+Tremolo/Amp Simulator: 4個系統, 6種<br>
+Reverb(殘響): 6 種<br>
+Delay(延遲): 5 種<br>
+Sympathetic Resonance(諧音共振) (限定SuperNATURAL Piano使用)<br>
+3-band Compressor(3段壓縮器)<br>
+5-band Digital Equalizer(5段數位等化器)<br>
+音訊檔播放器<br>
+檔案格式<br>
+音訊檔(WAV 格式, 44.1 kHz, 16-bit )<br>
+錄音器區<br>
+檔案格式<br>
+音訊檔(WAV 格式, 44.1 kHz, 16-bit )<br>
+外部儲存裝置<br>
+USB 隨身碟(支援USB 2.0高速隨身碟)<br>
+其他<br>
+Rhythm Pattern(節奏樂段)<br>
+200種樣式<br>
+控制裝置<br>
+推桿 x 9 (具有發光顯示)<br>
+旋鈕 x 8 (具有發光顯示)<br>
+滑音/顫音搖桿<br>
+顫音輪 x 2<br>
+顯示幕<br>
+圖形 LCD 256 x 80 dots<br>
+連接端子<br>
+MAIN OUT (L/MONO, R)接孔: 1/4吋耳機型<br>
+MAIN OUT (L, R)接孔: XLR型<br>
+SUB OUT (L, R)接孔:1/4吋耳機型<br>
+NPUT 接孔: 立體聲迷你耳機型<br>
+Pedal (DAMPER, FC1, FC2, EXT) 接孔: TRS 耳機型<br>
+MIDI (IN, OUT1, THRU/OUT2)連接端子<br>
+USB (COMPUTER)連接埠: USB type B<br>
+USB (MEMORY)連接埠: USB type A<br>
+PHONES接孔: 立體聲1/4吋耳機型<br>
+AC In接孔<br>
+USB音訊錄音/播放頻道數<br>
+訊號處理: 24-bit<br>
+取樣頻率: 192 kHz, 96 kHz, 88.2 kHz, 48 kHz, 44.1 kHz<br>
+錄音: 2頻道<br>
+播放: 2頻道<br>
+電力消耗<br>
+23 W<br>
+附件<br>
+使用手冊<br>
+電源線<br>
+延音踏板(可踩踏動作連續偵測)<br>
+        </span><br><br>
+        <span class="titleintro">運送方式</span><br><br>
+        <ol>
+            <li>
+                宅配／快遞
+            </li>
+            <li>
+                貨到付款
+            </li>
+            <li>
+               超商付款取貨 
+            </li>
+            <li>
+                來店取貨
+            </li>
+        </ol>
+        宅配貨到付款、超商取貨付款、宅配到府<br>
+        目前無法提供刷卡服務。<br><br>
+
+        本商店出貨讓您購物安心，享有售後保障。<br>
+        本商店使用宅配物流以及超商物流，如果急件可使用超商以外的物流處裡喔！
+    </div>
+  <div id="footer">
+    <div class="footer">
+      <ul>
+        <li  class="logo">
+          <a href="/html/index.html" id="foot" ><b>鐵鏽味</b></a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <b>聯絡我們</b>
+        </li>
+        <li>
+          <hr color="#ADADAD">
+        </li>
+        <li>
+          <b>Tele:</b>0978547003
+        </li>
+        <li>
+          <b>Email:</b>
+        </li>
+        <li>
+          ttpss96174@gmail.com
+        </li>
+        <li>
+          <b>Locate:</b>
+        </li>
+        <li>
+          桃園市中壢區大仁五街10號
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <b>會員專區</b>
+        </li>
+        <li>
+          <hr color="#ADADAD">
+        </li>
+        <li>
+          <a href="/html/member/sign.html" id="foot">加入會員</a>
+        </li>
+        <li>
+          <a href="/html/member/member.html" id="foot">會員權益</a>
+        </li>
+        <li>
+          <a href="/html/member/shop.html" id="foot">購物說明</a> 
+        </li>
+        <li>
+          <a href="/html/member/private.html" id="foot">隱私政策</a> 
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

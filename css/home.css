@@ -1,0 +1,105 @@
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+
+
+#test{
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: center;
+}
+
+.img{
+    border-radius: 20px;
+    float: left;
+}
+
+.good{
+    text-align: center;
+    padding-top: 40px;
+   
+
+    
+}
+
+.product{
+    font-size: 20px;
+    color: rgb(49, 46, 38);
+}
+
+.good .win{
+    color: rgb(252, 65, 65);
+    font-size: 25px;
+    font-weight: 700;
+   
+}
+
+#rank{
+    display:flex;
+    flex-wrap: wrap;
+    columns: 4;
+    width: 937px;
+    margin:0px auto;
+}
+
+#rank img{
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin: 10px;    
+}
+
+#rank .product{
+    display: block;
+    width: 150px;
+    
+    margin: 10px;
+}
+
+#rank .price{
+    color: rgb(250, 81, 81)
+}
+
+ul.product{
+    list-style: none;
+    overflow:hidden;
+}
+
+ul.porduct li{
+    float: left;
+    width: 150px;
+}
+
+ul.product li img{
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin: 10px;    
+}
+
+ul.product li span{
+    display: block;
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+}
+
+#contentgood{
+    width: 930px;
+    margin:0px auto;
+   
+}
+
+#contentgood .product{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+ul .price{
+    color: rgb(250, 81, 81);
+}
+
+.good a{
+    text-decoration: none ;
+}
+    

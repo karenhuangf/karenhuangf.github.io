@@ -1,0 +1,23 @@
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+body {
+    padding: 40px 0;
+}
+
+#sidebar_left{
+    position: absolute;
+    left: 20%;
+    width: 200px;
+    border: solid #868686 1px; 
+    padding:10px;
+}
+
+.title{
+    font-size: 25px;
+}
+
+.list{
+    color: #9c9c9c;
+    
+}

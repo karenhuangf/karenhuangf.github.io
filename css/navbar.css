@@ -1,0 +1,104 @@
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+
+
+#sitebody{
+    width:100%;　
+    margin:0 auto;
+　  font-size:13px;
+}
+
+#header{
+    height: 100px;
+}
+
+#sidebar_left{
+    position: relative;
+    left: 10%;
+    width:15%;
+    border: solid #868686 1px; 
+    padding:10px;
+    margin-bottom: 50px;
+    float:left; 
+}
+
+#content{
+    position: relative;
+    left: 15%;
+    margin-right: 20%;
+}
+
+#footer{
+    text-align:center;
+    background-color: #f5f3f3e0;
+    clear: both;
+}
+
+.navbar-brand{
+    font-family: cursive;
+    margin-left: 5%;
+}
+
+.form-inline{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.car{
+    margin-right: 5%;
+}
+
+.navbar-nav{
+    letter-spacing: 2px;
+}
+
+.title{
+    font-size: 25px;
+    color: black;
+}
+
+.list{
+    color: #9c9c9c;
+    
+}
+
+
+.footer{
+    padding-left: 20%;
+    padding-right: 20%;
+    columns: 3;
+  
+}
+
+ul{
+    list-style: none;
+    text-align: left;
+    -webkit-column-break-before: always;
+}
+
+.logo{
+    font-size: 40px;
+    font-family: cursive;
+}
+
+ul a b{
+    color:#9F5000 ;
+    
+}
+
+ul a{
+    color: black;
+    text-decoration: none;
+}
+
+#foot{
+    text-decoration: none;
+}
+
+
+
+pre b{
+    font-size: 25px;
+}
+

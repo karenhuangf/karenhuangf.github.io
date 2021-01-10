@@ -1,0 +1,61 @@
+
+#productup{
+    margin-bottom: 100px;
+    width: 100%;
+}
+
+#sidepicture{
+    float: left;
+    margin-right: 5%;
+    margin-left: 15%;
+    width: 400px;
+    height: 300px;
+}
+
+#product{
+    margin-right: 15%;
+    height:300px;
+    
+}
+
+#sidepicture img{
+    width: 400px;
+    
+}
+
+.producttitle{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#product ul li{
+    color: rgb(90, 90, 90);
+}
+
+.price{
+    color: rgb(250, 81, 81);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#quantity{
+    text-align: center;
+}
+
+#product .btn{
+    width: 190px;
+}
+
+#productintro{
+    margin-left: 15%;
+    margin-bottom: 100px;
+}
+
+.titleintro{
+    font-size: 20px;
+    font-weight: bold;
+    border-style: none none none inset;
+    border-color: black;
+    padding: 5px;
+    
+}

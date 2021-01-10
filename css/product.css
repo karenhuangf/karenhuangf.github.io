@@ -1,0 +1,37 @@
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+
+
+
+ul.product{
+    list-style: none;
+    overflow:hidden;
+}
+
+ul.porduct li{
+    float: left;
+    width: 150px;
+}
+
+ul.product li img{
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin: 10px;    
+}
+
+ul.product li span{
+    display: block;
+    width: 150px;
+    text-align: center;
+    margin: 10px;
+}
+
+.product{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.price{
+    color: rgb(250, 81, 81);
+}

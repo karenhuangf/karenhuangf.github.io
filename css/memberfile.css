@@ -1,0 +1,23 @@
+#file{
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 50px;
+}
+
+#file span{
+    font-size: 25px;
+    font-weight: 800;
+
+}
+
+#file form{
+    border-style: solid;
+    border-color: rgb(184, 184, 184);
+    border-width: 2px;
+    padding: 20px;
+}
+
+#file .fuck{
+
+    text-align: center;
+}
